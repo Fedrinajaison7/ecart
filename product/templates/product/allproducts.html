@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>
+            Products List
+        </title>
+    </head>
+    <body>
+        {% for category in categories %}
+            <h2>{{category.name}}</h2>
+            {% for product in products %}
+                {% if category == product.category %}
+                    <h5>{{product.name}}</h5>
+                {% endif %}
+            {% endfor %}
+            <h5> Total Sum : {{ category.get_category_total }}</h5>
+            <h5> Total Average : {{ category.get_category_avg|floatformat:2 }}</h5>
+
+        {% endfor %}
+    </body>
+</html>
